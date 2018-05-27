@@ -2,10 +2,10 @@
 #define CHANGEFIGURECONTROLLERDECORATOR_H
 
 #include <QObject>
-#include "icontroller.h"
-#include "housecontroller.h"
-#include "housemodel.h"
-#include "idecorator.h"
+#include "controller/icontroller.h"
+#include "controller/housecontroller.h"
+#include "model/housemodel.h"
+#include "controller/decorator/idecorator.h"
 
 namespace Kameiros {
 namespace Controller {
@@ -15,6 +15,7 @@ class ChangeFigureControllerDecorator : public IDecorator
     Q_OBJECT
 public:
     ChangeFigureControllerDecorator(IController* inner);
+    ~ChangeFigureControllerDecorator() override;
 
 public slots:
     void handleMouseMoved(QPointF position) override;

@@ -27,30 +27,47 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     qcityview2d.cpp \
-    housemodel.cpp \
-    housecontroller.cpp \
-    abstractmodel.cpp \
-    abstractcontroller.cpp \
-    abstractview.cpp \
-    houseview.cpp \
-    changefigurecontrollerdecorator.cpp \
-    movefigurecontrollerdecorator.cpp \
-    icontroller.cpp \
-    idecorator.cpp
+    model/housemodel.cpp \
+    model/abstractmodel.cpp \
+    view/iview.cpp \
+    view/abstractview.cpp \
+    view/houseview.cpp \
+    view/decorator/movefigureviewdecorator.cpp \
+    controller/abstractcontroller.cpp \
+    controller/housecontroller.cpp \
+    controller/decorator/changefigurecontrollerdecorator.cpp \
+    controller/decorator/movefigurecontrollerdecorator.cpp \
+    controller/icontroller.cpp \
+    controller/decorator/idecorator.cpp \
+    movefiguredecoratorfactory.cpp \
+    view/decorator/editfigureviewdecorator.cpp \
+    editfiguredecoratorfactory.cpp \
+    controller/decorator/editfigurecontrollerdecorator.cpp \
+    view/handlechangepointfigure.cpp
+
 
 HEADERS += \
         mainwindow.h \
     qcityview2d.h \
-    housemodel.h \
-    housecontroller.h \
-    abstractmodel.h \
-    abstractcontroller.h \
-    abstractview.h \
-    houseview.h \
-    changefigurecontrollerdecorator.h \
-    icontroller.h \
-    movefigurecontrollerdecorator.h \
-    idecorator.h
+    model/housemodel.h \
+    controller/housecontroller.h \
+    model/abstractmodel.h \
+    controller/abstractcontroller.h \
+    view/iview.h \
+    view/abstractview.h \
+    view/houseview.h \
+    view/decorator/movefigureviewdecorator.h \
+    controller/decorator/changefigurecontrollerdecorator.h \
+    controller/icontroller.h \
+    controller/decorator/movefigurecontrollerdecorator.h \
+    controller/decorator/idecorator.h \
+    abstractdecoratorfactory.h \
+    movefiguredecoratorfactory.h \
+    view/decorator/editfigureviewdecorator.h \
+    editfiguredecoratorfactory.h \
+    controller/decorator/editfigurecontrollerdecorator.h \
+    view/handlechangepointfigure.h
+
 
 FORMS += \
         mainwindow.ui

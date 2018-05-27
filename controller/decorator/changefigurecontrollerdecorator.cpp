@@ -7,6 +7,20 @@ ChangeFigureControllerDecorator::ChangeFigureControllerDecorator(IController* in
 {
 }
 
+ChangeFigureControllerDecorator::~ChangeFigureControllerDecorator()
+{
+    if(auto inner = dynamic_cast<Kameiros::Controller::HouseController*>(this->inner)){
+    if(auto model = dynamic_cast<Kameiros::Model::HouseModel*>(inner->getModel())){
+        auto outline = model->getOutline();
+        if(!outline.isEmpty()){
+            outline.removeLast();
+        }
+
+        model->setOutline(outline);
+    }
+    }
+}
+
 void ChangeFigureControllerDecorator::handleMouseMoved(QPointF position)
 {
     if(auto inner = dynamic_cast<Kameiros::Controller::HouseController*>(this->inner)){
@@ -37,7 +51,7 @@ void ChangeFigureControllerDecorator::handleMousePressed(QPointF position, Qt::M
 
 }
 
-void ChangeFigureControllerDecorator::handleMouseReleased(QPointF position, Qt::MouseButton button)
+void ChangeFigureControllerDecorator::handleMouseReleased(QPointF, Qt::MouseButton)
 {
 
 }

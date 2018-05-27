@@ -1,7 +1,7 @@
 #ifndef IDECORATOR_H
 #define IDECORATOR_H
 
-#include "icontroller.h"
+#include "controller/icontroller.h"
 
 namespace Kameiros {
 namespace Controller {
@@ -12,8 +12,8 @@ public:
     IDecorator(IController* inner);
 
 
-    void connectMouseSignals(View::AbstractView* view);
-    void disconnectMouseSignals(View::AbstractView* view);
+    void connectMouseSignals(View::IView* view);
+    void disconnectMouseSignals(View::IView* view);
 };
 }
 }

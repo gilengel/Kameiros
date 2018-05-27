@@ -4,9 +4,9 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include <memory>
-#include "abstractmodel.h"
-#include "abstractview.h"
-#include "icontroller.h"
+#include "model/abstractmodel.h"
+#include "view/abstractview.h"
+#include "controller/icontroller.h"
 
 namespace Kameiros {
 namespace Controller {

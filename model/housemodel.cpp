@@ -37,7 +37,9 @@ QPointF HouseModel::getPosition() const
 
 void HouseModel::setPosition(const QPointF &value)
 {
+    outline.translate(-position);
     position = value;
+    outline.translate(value);
     emit modelChanged(this);
 }
 

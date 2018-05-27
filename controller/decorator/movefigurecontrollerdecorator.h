@@ -2,10 +2,10 @@
 #define MOVEFIGURECONTROLLERDECORATOR_H
 
 #include <QtDebug>
-#include "icontroller.h"
-#include "housecontroller.h"
-#include "housemodel.h"
-#include "idecorator.h"
+#include "controller/icontroller.h"
+#include "controller/housecontroller.h"
+#include "model/housemodel.h"
+#include "controller/decorator/idecorator.h"
 
 namespace Kameiros {
 namespace Controller {

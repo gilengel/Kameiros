@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QMouseEvent>
-#include "abstractview.h"
+#include "../view/iview.h"
 
 namespace Kameiros {
 namespace Controller {
@@ -15,7 +15,7 @@ public:
     IController(IController* inner);
     IController *getInner() const;
 
-    void connectMouseSignals(View::AbstractView* view);
+    void connectMouseSignals(View::IView* view);
 
 public slots:
     virtual void handleMousePressed(QPointF position, Qt::MouseButton button) = 0;

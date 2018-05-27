@@ -7,12 +7,16 @@
 
 
 
-#include "housemodel.h"
-#include "houseview.h"
-#include "housecontroller.h"
-#include "icontroller.h"
-#include "changefigurecontrollerdecorator.h"
-#include "movefigurecontrollerdecorator.h"
+#include "model/housemodel.h"
+#include "view/houseview.h"
+#include "controller/housecontroller.h"
+#include "controller/icontroller.h"
+#include "controller/decorator/changefigurecontrollerdecorator.h"
+#include "controller/decorator/movefigurecontrollerdecorator.h"
+
+#include "abstractdecoratorfactory.h"
+#include "movefiguredecoratorfactory.h"
+#include "editfiguredecoratorfactory.h"
 
 namespace Ui {
 class MainWindow;
@@ -39,8 +43,9 @@ private:
     std::vector<Kameiros::Model::AbstractModel*> models;
 
     Kameiros::Controller::IController* activeController;
+    Kameiros::View::IView* activeView;
 
-    void addDecorator(Kameiros::Controller::IController* decorator);
+    void addDecorator(AbstractDecoratorFactory* factory);
     void removeDecorator();
 
 };

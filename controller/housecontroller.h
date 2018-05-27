@@ -2,8 +2,8 @@
 #define HOUSECONTROLLER_H
 
 #include "abstractcontroller.h"
-#include "housemodel.h"
-#include "houseview.h"
+#include "../model/housemodel.h"
+#include "../view/houseview.h"
 
 namespace Kameiros {
 namespace Controller {

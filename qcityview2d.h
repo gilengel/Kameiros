@@ -7,7 +7,8 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 
-#include "abstractview.h"
+#include "view/iview.h"
+#include "view/abstractview.h"
 
 class QCityView2D : public QGraphicsView
 {
@@ -15,8 +16,8 @@ class QCityView2D : public QGraphicsView
 public:
     explicit QCityView2D(QWidget *parent = nullptr);
 
-    void addObjectView(Kameiros::View::AbstractView* view);
-    Kameiros::View::AbstractView* getObjectView(int index) const;
+    void addObjectView(Kameiros::View::IView* view);
+    Kameiros::View::IView* getObjectView(int index) const;
 signals:
 
 public slots:

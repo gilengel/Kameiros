@@ -1,8 +1,9 @@
 #include "abstractview.h"
 
+using namespace Kameiros;
 using namespace Kameiros::View;
 
-AbstractView::AbstractView(Model::AbstractModel* model, QObject* parent) : QObject (parent)
+AbstractView::AbstractView(Model::AbstractModel* model, QGraphicsItem* parent) : IView(parent)
 {
     this->model = model;
 }
@@ -12,6 +13,11 @@ bool AbstractView::isMouseHovering(QPointF mousePosition)
     return model->calculateBoundingBox().contains(mousePosition);
 }
 
+Model::AbstractModel *AbstractView::getModel() const
+{
+    return model;
+}
+/*
 QPointF AbstractView::getMousePosition() const
 {
     return mousePosition;
@@ -22,17 +28,18 @@ void AbstractView::setMousePosition(const QPointF &value)
     mousePosition = value;
 }
 
-void AbstractView::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void AbstractView::mousePressEvent(QGraphicsSceneMouseEvent *)
 {
     qDebug() << "Mouse Pressed";
 }
 
-void AbstractView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void AbstractView::mouseReleaseEvent(QGraphicsSceneMouseEvent *)
 {
 
 }
 
-void AbstractView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void AbstractView::mouseMoveEvent(QGraphicsSceneMouseEvent *)
 {
     qDebug() << "Mouse moved";
 }
+*/

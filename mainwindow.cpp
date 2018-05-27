@@ -10,7 +10,14 @@ MainWindow::MainWindow(QWidget *parent) :
     Kameiros::Model::HouseModel* model = new Kameiros::Model::HouseModel(this);
     model->setPosition(QPoint(0, 0));
 
-    Kameiros::View::HouseView* view = new Kameiros::View::HouseView(model, this);
+    QPolygonF p;
+    p << QPointF(0.0, 0.0);
+    p << QPointF(100.0, 0.0);
+    p << QPointF(100.0, 100.0);
+    p << QPointF(0.0, 150.0);
+    model->setOutline(p);
+
+    Kameiros::View::HouseView* view = new Kameiros::View::HouseView(model, nullptr);
     activeController = new Kameiros::Controller::HouseController(model, view);
 
     connect(ui->actionEdit_ObjectOutline, &QAction::triggered, this, &MainWindow::on_radioButton_toggled);
@@ -30,7 +37,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_radioButton_toggled(bool checked)
 {
     if(checked){
-        addDecorator(new Kameiros::Controller::Decorator::ChangeFigureControllerDecorator(activeController));
+        addDecorator(new MoveFigureDecoratorFactory());
     }else{
         removeDecorator();
     }
@@ -39,27 +46,32 @@ void MainWindow::on_radioButton_toggled(bool checked)
 void MainWindow::on_radioButton_2_toggled(bool checked)
 {
     if(checked){
-        addDecorator(new Kameiros::Controller::Decorator::MoveFigureControllerDecorator(activeController));
+        addDecorator(new EditFigureDecoratorFactory());
     }else{
         removeDecorator();
     }
 }
 
-void MainWindow::addDecorator(Kameiros::Controller::IController *decorator)
+void MainWindow::addDecorator(AbstractDecoratorFactory* factory)
 {
-    activeController = decorator;
+    auto view = ui->widget->getObjectView(1);
+    if(view == nullptr){
+        qDebug() << ":(";
+    }
 
-    auto view = static_cast<Kameiros::View::HouseView*>(ui->widget->getObjectView(0));
-    activeController->connectMouseSignals(view);
+    activeController = factory->createControllerDecorator(activeController);
+
+    if(auto hosueView = dynamic_cast<Kameiros::View::IView*>(view)){
+        activeController->connectMouseSignals(dynamic_cast<Kameiros::View::IView*>(view));
+    }else{
+        qDebug() << "Shady Character";
+    }
+
+
+    activeView = factory->createViewDecorator(dynamic_cast<Kameiros::View::IView*>(view));
 }
 
 void MainWindow::removeDecorator()
 {
-    if(auto decorator = static_cast<Kameiros::Controller::Decorator::IDecorator*>(activeController)){
-        auto view = static_cast<Kameiros::View::HouseView*>(ui->widget->getObjectView(0));
-        decorator->disconnectMouseSignals(view);
-
-        activeController = decorator->getInner();
-        delete decorator;
-    }
+  delete activeView;
 }

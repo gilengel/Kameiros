@@ -13,7 +13,7 @@ void QCityView2D::mouseMoveEvent(QMouseEvent *event)
 {
     for(auto&& view : scene->items()){
         if(auto derived = dynamic_cast<Kameiros::View::AbstractView*>(view)){
-            derived->mouseMovedEvent(mapToScene(event->pos()));
+            //derived->mouseMovedEvent(mapToScene(event->pos()));
         }
     }
 
@@ -24,7 +24,7 @@ void QCityView2D::mousePressEvent(QMouseEvent *event)
 {
     for(auto&& view : scene->items()){
         if(auto derived = dynamic_cast<Kameiros::View::AbstractView*>(view)){
-            derived->mousePressedEvent(mapToScene(event->pos()), event->button());
+            //derived->mousePressedEvent(mapToScene(event->pos()), event->button());
         }
     }
 
@@ -43,12 +43,20 @@ void QCityView2D::mouseReleaseEvent(QMouseEvent *event)
     QGraphicsView::mouseReleaseEvent(event);
 }
 
-void QCityView2D::addObjectView(Kameiros::View::AbstractView *view)
+void QCityView2D::addObjectView(Kameiros::View::IView *view)
 {
     scene->addItem(view);
 }
 
-Kameiros::View::AbstractView* QCityView2D::getObjectView(int index) const
+Kameiros::View::IView* QCityView2D::getObjectView(int) const
 {
-    return static_cast<Kameiros::View::AbstractView*>(scene->items().at(0));
+     QList<QGraphicsItem *> bla = scene->items();
+     QList<QGraphicsItem *>::iterator i;
+     for(i = scene->items().begin(); i < scene->items().end(); i++){
+         if(auto a = dynamic_cast<Kameiros::View::IView*>(*i)){
+             return a;
+         }
+     }
+
+     return nullptr;
 }
