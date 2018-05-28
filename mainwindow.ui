@@ -26,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>1054</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -69,7 +69,7 @@
   <customwidget>
    <class>QCityView2D</class>
    <extends>QWidget</extends>
-   <header>qcityview2d.h</header>
+   <header>src/qcityview2d.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

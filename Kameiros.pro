@@ -24,49 +24,50 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    qcityview2d.cpp \
-    model/housemodel.cpp \
-    model/abstractmodel.cpp \
-    view/iview.cpp \
-    view/abstractview.cpp \
-    view/houseview.cpp \
-    view/decorator/movefigureviewdecorator.cpp \
-    controller/abstractcontroller.cpp \
-    controller/housecontroller.cpp \
-    controller/decorator/changefigurecontrollerdecorator.cpp \
-    controller/decorator/movefigurecontrollerdecorator.cpp \
-    controller/icontroller.cpp \
-    controller/decorator/idecorator.cpp \
-    movefiguredecoratorfactory.cpp \
-    view/decorator/editfigureviewdecorator.cpp \
-    editfiguredecoratorfactory.cpp \
-    controller/decorator/editfigurecontrollerdecorator.cpp \
-    view/handlechangepointfigure.cpp
+        src/main.cpp \
+        src/mainwindow.cpp \
+    src/qcityview2d.cpp \
+    src/model/housemodel.cpp \
+    src/model/abstractmodel.cpp \
+    src/view/iview.cpp \
+    src/view/abstractview.cpp \
+    src/view/houseview.cpp \
+    src/view/decorator/movefigureviewdecorator.cpp \
+    src/controller/abstractcontroller.cpp \
+    src/controller/housecontroller.cpp \
+    src/controller/decorator/changefigurecontrollerdecorator.cpp \
+    src/controller/decorator/movefigurecontrollerdecorator.cpp \
+    src/controller/icontroller.cpp \
+    src/controller/decorator/idecorator.cpp \
+    src/movefiguredecoratorfactory.cpp \
+    src/view/decorator/editfigureviewdecorator.cpp \
+    src/editfiguredecoratorfactory.cpp \
+    src/controller/decorator/editfigurecontrollerdecorator.cpp \
+    src/view/handlechangepointfigure.cpp
 
 
 HEADERS += \
-        mainwindow.h \
-    qcityview2d.h \
-    model/housemodel.h \
-    controller/housecontroller.h \
-    model/abstractmodel.h \
-    controller/abstractcontroller.h \
-    view/iview.h \
-    view/abstractview.h \
-    view/houseview.h \
-    view/decorator/movefigureviewdecorator.h \
-    controller/decorator/changefigurecontrollerdecorator.h \
-    controller/icontroller.h \
-    controller/decorator/movefigurecontrollerdecorator.h \
-    controller/decorator/idecorator.h \
-    abstractdecoratorfactory.h \
-    movefiguredecoratorfactory.h \
-    view/decorator/editfigureviewdecorator.h \
-    editfiguredecoratorfactory.h \
-    controller/decorator/editfigurecontrollerdecorator.h \
-    view/handlechangepointfigure.h
+        src/mainwindow.h \
+    src/qcityview2d.h \
+	src/model/abstractmodel.h \
+    src/model/housemodel.h \
+    src/view/iview.h \
+    src/view/abstractview.h \
+    src/view/houseview.h \
+    src/view/decorator/movefigureviewdecorator.h \
+	src/view/handlechangepointfigure.h \
+	src/controller/abstractcontroller.h \
+	src/controller/housecontroller.h \
+    src/controller/decorator/changefigurecontrollerdecorator.h \
+    src/controller/icontroller.h \
+    src/controller/decorator/movefigurecontrollerdecorator.h \
+    src/controller/decorator/idecorator.h \
+    src/abstractdecoratorfactory.h \
+    src/movefiguredecoratorfactory.h \
+    src/view/decorator/editfigureviewdecorator.h \
+    src/editfiguredecoratorfactory.h \
+    src/controller/decorator/editfigurecontrollerdecorator.h \
+    
 
 
 FORMS += \
